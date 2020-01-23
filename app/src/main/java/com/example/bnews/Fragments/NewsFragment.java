@@ -1,4 +1,4 @@
-package com.example.bnews;
+package com.example.bnews.Fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,6 +13,8 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
+import com.example.bnews.BnewsViewModel;
+import com.example.bnews.R;
 import com.example.bnews.model.Noticia;
 import java.util.List;
 

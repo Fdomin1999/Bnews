@@ -3,6 +3,7 @@ package com.example.bnews;
 import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import com.example.bnews.model.Noticia;
 import com.example.bnews.model.Team;
@@ -11,8 +12,10 @@ import java.util.List;
 
 public class BnewsViewModel extends AndroidViewModel {
 
-    MutableLiveData<List<Noticia>> listaNoticias = new MutableLiveData<>();
-    MutableLiveData<List<Team>>listaTeams = new MutableLiveData<>();
+    public LiveData<List<Noticia>> listaNoticias;
+    private LiveData<List<Team>> listaTeams;
+    public MutableLiveData<List<Noticia>> listaNoticias = new MutableLiveData<>();
+    public MutableLiveData<List<Team>>listaTeams = new MutableLiveData<>();
 
 
     public BnewsViewModel(@NonNull Application application) {
@@ -43,6 +46,18 @@ public class BnewsViewModel extends AndroidViewModel {
             team.nombre = "Nombre del equipo" + i;
             teams.add(team);
         }
-        listaTeams.setValue(teams);
+        getListaTeams().setValue(teams);
+    }
+
+    public LiveData<List<Team>> getListaTeams() {
+        return listaTeams;
+    }
+
+    public void setListaTeams(LiveData<List<Team>> listaTeams) {
+        this.listaTeams = listaTeams;
+    }
+
+
+    public LiveData<List<Team>> listaTeams() {
     }
 }

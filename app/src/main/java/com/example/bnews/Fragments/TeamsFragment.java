@@ -1,4 +1,4 @@
-package com.example.bnews;
+package com.example.bnews.Fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,6 +13,9 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.bnews.BnewsViewModel;
+import com.example.bnews.R;
 import com.example.bnews.model.Team;
 
 import java.util.List;
@@ -41,7 +44,7 @@ public class TeamsFragment extends Fragment {
         final TeamsAdapter teamsAdapter = new TeamsAdapter();
         recyclerView.setAdapter(teamsAdapter);
 
-        bnewsViewModel.listaTeams.observe(getViewLifecycleOwner(), new Observer<List<Team>>() {
+        bnewsViewModel.listaTeams().observe(getViewLifecycleOwner(), new Observer<List<Team>>() {
             @Override
             public void onChanged(List<Team> teams) {
                 teamsAdapter.establecerListaTeams(teams);
